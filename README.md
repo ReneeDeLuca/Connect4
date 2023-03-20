@@ -18,7 +18,8 @@ Things to change
     - 
   -Theme - Cats vs Dogs
     - change player 'chips' from basic circles to cats and dogs 
-      - lesson needed - how to use emojis in HTML/CSS/JS (article found: //https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g)
+      - lesson needed - how to use emojis in HTML/CSS/JS 
+          -article found: https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g)
       - hover and set behaviors should show based on which player turn it is
     - change game end message to match theme
       - pull API info to insert a random cat or dog photo (need third animal for draw), depending on which player wins

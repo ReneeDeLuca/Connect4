@@ -4,9 +4,9 @@
 /*******************************************/
 :root {
      --cell-size: 85px;
-     --color-p1: #0101d1;
+     --color-p1: #3c3cd0;
      --color-p1-set: #000080;
-     --color-p2: #ba0202;
+     --color-p2: #b73e3e;
      --color-p2-set: #850101;
      --color-draw: #500181;
      --color-body: #babdc0;
@@ -93,12 +93,16 @@ header{
  .cell:nth-child(36), .cell:nth-child(37), .cell:nth-child(38),.cell:nth-child(39),.cell:nth-child(40),.cell:nth-child(41), .cell:nth-child(42) {
      border-bottom: #000080 2px solid;
  }
+ /* hide bottom row */
+.cell.hidden{
+    border: 1px solid var(--color-body)
+}
 /* remove hover effect if cell is already filled */
-.cell.Player1, .cell.Player2 {
+.cell.Player1, .cell.Player2, .cell.hidden {
      cursor: not-allowed;
  }
  /* for Player1 (hover) */
- .board.Player1 .cell:not(.Player2):not(.Player1):hover {
+ .gameBoard.Player1 .cell:not(.Player2):not(.Player1):hover {
      background: radial-gradient(var(--color-p1) 60%, transparent 60%);
  }
  /* for Player1 (set) */
@@ -106,7 +110,7 @@ header{
      background: radial-gradient(var(--color-p1-set) 60%, transparent 60%);
  }
  /* for Player2 (hover) */
- .board.Player2 .cell:not(.Player2):not(.Player1):hover {	
+ .gameBoard.Player2 .cell:not(.Player2):not(.Player1):hover {	
       background: radial-gradient(var(--color-p2) 60%, transparent 60%);
  }
  

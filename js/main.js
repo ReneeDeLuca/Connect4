@@ -1,7 +1,7 @@
 //two players, typically both chips of different colors (red vs blue)
 const player1 = 'Player1'
 const player2 = 'Player2'
-
+const hidden = 'hidden'
 // need a variable to swtich between players for every turn
 let isPlayer2Turn = false 
 
@@ -118,7 +118,7 @@ function isDraw(){
     })
 }
 // cellElements[0].attributes.id.value
-function placeMark(cell, currentPlayer){
+function placeMark(cell, currentPlayer){         
     if((cell >= 35 && cell <=41) && 
         !cellElements[cell].classList.contains(player1) && 
         !cellElements[cell].classList.contains(player2)){
@@ -126,10 +126,10 @@ function placeMark(cell, currentPlayer){
             //and the cell is empty, 
         cellElements[cell].classList.add(currentPlayer)
             //add currentPlayer to classList for cell clicked on
-
-    }else if((cellElements[(cell + 7)].classList.contains(player1) || 
-        cellElements[(cell + 7)].classList.contains(player2)) && 
-            //if the cell below the cell you clicked on is full
+    }else if(((cellElements[(cell + 7)].classList.contains(player1) || 
+        cellElements[(cell + 7)].classList.contains(player2)) ||
+        cellElements[(cell + 7)].classList.contains(hidden)) && 
+            //if the cell below the cell you clicked on is full or hidden
         (!(cellElements[cell].classList.contains(player1)) && 
         !(cellElements[cell].classList.contains(player2)))
             //and the cell you clicked on is empty
@@ -137,9 +137,10 @@ function placeMark(cell, currentPlayer){
         cellElements[cell].classList.add(currentPlayer)
             //add currentPlayer to classList for cell clicked on
 
-    }else if((cellElements[(cell + 14)].classList.contains(player1) || 
-        cellElements[(cell + 14)].classList.contains(player2)) && 
-            //if the cell 2 below the cell you clicked on is full
+    }else if(((cellElements[(cell + 14)].classList.contains(player1) || 
+        cellElements[(cell + 14)].classList.contains(player2)) ||
+        cellElements[(cell + 14)].classList.contains(hidden)) && 
+            //if the cell 2 below the cell you clicked on is fullor hidden
         (!(cellElements[(cell + 7)].classList.contains(player1)) && 
         !(cellElements[(cell + 7)].classList.contains(player2)))
             //and the cell below the cell you clicked on is empty
@@ -147,9 +148,10 @@ function placeMark(cell, currentPlayer){
         cellElements[(cell + 7)].classList.add(currentPlayer)
             //add currentPlayer to classList for cell below the cell clicked on
 
-    }else if((cellElements[(cell + 21)].classList.contains(player1) || 
-        cellElements[(cell + 21)].classList.contains(player2)) && 
-            //if the cell 3 below the cell you clicked on is full
+    }else if(((cellElements[(cell + 21)].classList.contains(player1) || 
+        cellElements[(cell + 21)].classList.contains(player2)) ||
+        cellElements[(cell + 21)].classList.contains(hidden)) && 
+            //if the cell 3 below the cell you clicked on is full or hidden
         (!(cellElements[(cell + 14)].classList.contains(player1)) && 
         !(cellElements[(cell + 14)].classList.contains(player2)))
             //and the cell 2 below the cell you clicked on is empty
@@ -157,9 +159,10 @@ function placeMark(cell, currentPlayer){
         cellElements[(cell + 14)].classList.add(currentPlayer)
             //add currentPlayer to classList for cell 2 below the cell clicked on
 
-    }else if((cellElements[(cell + 28)].classList.contains(player1) || 
-        cellElements[(cell + 28)].classList.contains(player2)) && 
-            //if the cell 4 below the cell you clicked on is full
+    }else if(((cellElements[(cell + 28)].classList.contains(player1) || 
+        cellElements[(cell + 28)].classList.contains(player2)) ||
+        cellElements[(cell + 28)].classList.contains(hidden)) && 
+            //if the cell 4 below the cell you clicked on is full or hidden
         (!(cellElements[(cell + 21)].classList.contains(player1)) && 
         !(cellElements[(cell + 21)].classList.contains(player2)))
             //and the cell 3 below the cell you clicked on is empty
@@ -167,17 +170,25 @@ function placeMark(cell, currentPlayer){
         cellElements[(cell + 21)].classList.add(currentPlayer)
             //add currentPlayer to classList for cell 3 below the cell clicked on
 
-    }else if((cellElements[(cell + 35)].classList.contains(player1) || 
-        cellElements[(cell + 35)].classList.contains(player2)) && 
-            //if the cell 5 below the cell you clicked on is full
+    }else if(((cellElements[(cell + 35)].classList.contains(player1) || 
+        cellElements[(cell + 35)].classList.contains(player2)) ||
+        cellElements[(cell + 35)].classList.contains(hidden)) && 
+            //if the cell 5 below the cell you clicked on is full or hidden
         (!(cellElements[(cell + 28)].classList.contains(player1)) && 
         !(cellElements[(cell + 28)].classList.contains(player2)))
-            //and the cell 5 below the cell you clicked on is empty
+            //and the cell 4 below the cell you clicked on is empty
     ){
         cellElements[(cell + 28)].classList.add(currentPlayer)
             //add currentPlayer to classList for cell 4 below the cell clicked on
-    }else{
+
+    }else if(((!cellElements[(cell + 35)].classList.contains(player1) || 
+        !cellElements[(cell + 35)].classList.contains(player2)) ||
+        cellElements[(cell + 35)].classList.contains(hidden))&&
+            //if the cell 5 below the cell you clicked on is empty or hidden
+        cell + 35 <= 41
+    ){
         cellElements[(cell + 35)].classList.add(currentPlayer)
+            //add currentPlayer to classList for cell 5 below the cell clicked on
     }
 }
 
@@ -207,3 +218,27 @@ function checkWin(currentPlayer){
 }
 
 
+// if((!cellElements[35].classList.contains(player1) && 
+//         !cellElements[35].classList.contains(player2)) ||
+//             //cell 35
+//         (!cellElements[36].classList.contains(player1) && 
+//         !cellElements[36].classList.contains(player2)) ||
+//             //cell 36 or
+//         (!cellElements[37].classList.contains(player1) && 
+//         !cellElements[37].classList.contains(player2)) ||
+//             //cell 37 or
+//         (!cellElements[38].classList.contains(player1) && 
+//         !cellElements[38].classList.contains(player2)) ||
+//             //cell 38 or
+//         (!cellElements[39].classList.contains(player1) && 
+//         !cellElements[39].classList.contains(player2)) ||
+//             //cell 39 or
+//         (!cellElements[40].classList.contains(player1) && 
+//         !cellElements[40].classList.contains(player2)) ||
+//             //cell 40 or
+//         (!cellElements[41].classList.contains(player1) && 
+//         !cellElements[41].classList.contains(player2))){
+//             //cell 41 are empty
+            
+    
+//         }

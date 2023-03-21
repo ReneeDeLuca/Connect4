@@ -2,6 +2,8 @@
 const player1 = 'Player1'
 const player2 = 'Player2'
 const hidden = 'hidden'
+const nextTurn = 'nextTurn'
+
 // need a variable to swtich between players for every turn
 let isPlayer2Turn = false 
 
@@ -47,7 +49,10 @@ const cellElements = document.querySelectorAll('[data-cell]')
 const boardElement = document.getElementById('board')
 const gameEndMessageElement = document.getElementById('gameEndMessage')
 const restartButton = document.getElementById('restartButton')
+const showBoardButton = document.getElementById('showBoard')
 const gameEndMessageTextElement = document.getElementById('gameEndMessageText')
+const catTurnText = document.getElementById('catsGo')
+const dogTurnText = document.getElementById('dogsGo')
 //add click event for cells
 
 // refresh starts a new game
@@ -55,6 +60,8 @@ startGame()
 
 //when reset button is clicked, starts a new game
 restartButton.addEventListener('click', startGame)
+//when show board button is clicked, hides end of game message
+showBoardButton.addEventListener('click', seeBoard)
 
 function startGame(){
     //switch isPlayer2Turn to false, game starts with Player 1
@@ -68,6 +75,9 @@ function startGame(){
     })
     //set what happens when the current player mouses over the board 
     setBoardHoverClass()
+    //show which player should go
+    showTurn()
+    hideOrDisplay()
     //remove game end messages
     gameEndMessageElement.classList.remove('draw')
     gameEndMessageElement.classList.remove('dogs-win')
@@ -81,7 +91,6 @@ function handleCellClick(e){
     //target cell clicked
     const cell = Number(e.target.id)
     const currentPlayer = isPlayer2Turn ? player2 : player1
-    
     placeMark(cell, currentPlayer)
 
     if(checkWin(currentPlayer)){
@@ -91,6 +100,8 @@ function handleCellClick(e){
     }else{
         swapTurns()
         setBoardHoverClass()
+        showTurn()
+        hideOrDisplay()
     }
 }
 
@@ -110,11 +121,13 @@ function endGame(draw) {
     }
     gameEndMessageElement.classList.add('show')
 }
-
+function seeBoard(){
+    gameEndMessageElement.classList.remove('show')
+}
 //check if it's a tie, if every cell is filled
 function isDraw(){
     return [...cellElements].every(cell => {
-        return cell.classList.contains(player1) || cell.classList.contains(player2)
+        return cell.classList.contains(player1) || cell.classList.contains(player2) || cell.classList.contains(hidden)
     })
 }
 // cellElements[0].attributes.id.value
@@ -126,6 +139,7 @@ function placeMark(cell, currentPlayer){
             //and the cell is empty, 
         cellElements[cell].classList.add(currentPlayer)
             //add currentPlayer to classList for cell clicked on
+
     }else if(((cellElements[(cell + 7)].classList.contains(player1) || 
         cellElements[(cell + 7)].classList.contains(player2)) ||
         cellElements[(cell + 7)].classList.contains(hidden)) && 
@@ -191,11 +205,23 @@ function placeMark(cell, currentPlayer){
             //add currentPlayer to classList for cell 5 below the cell clicked on
     }
 }
-
-
 //change which player's turn it is
 function swapTurns(){
     isPlayer2Turn = !isPlayer2Turn
+}
+//show which player turn it is
+function showTurn(){
+    catTurnText.innerText = `${isPlayer2Turn ? "Dogs!" : "Cats!"} It's your turn!`
+    dogTurnText.innerText = `${isPlayer2Turn ? "Dogs!" : "Cats!"} It's your turn!`
+}
+function hideOrDisplay(){
+    dogTurnText.classList.remove(nextTurn)
+    catTurnText.classList.remove(nextTurn)
+    if(isPlayer2Turn){
+        dogTurnText.classList.add(nextTurn)
+    }else{
+        catTurnText.classList.add(nextTurn)
+    }
 }
 
 //switch which player chip should be shown on mouseover
@@ -216,29 +242,41 @@ function checkWin(currentPlayer){
         })
     })
 }
+//configure hover
+function watchForHover() {
+// lastTouchTime is used for ignoring emulated mousemove events
+// that are fired after touchstart events. Since they're
+// indistinguishable from real events, we use the fact that they're
+// fired a few milliseconds after touchstart to filter them.
+    let lastTouchTime = 0
+
+    function enableHover() {
+        if (new Date() - lastTouchTime < 500) return
+        boardElement.setAttribute('id','hasHover');
+    }
+
+    function disableHover() {
+        boardElement.removeAttribute('id','hasHover');
+    }
+
+    function updateLastTouchTime() {
+        lastTouchTime = new Date()
+    }
+
+    document.addEventListener('touchstart', updateLastTouchTime, true)
+    document.addEventListener('touchstart', disableHover, true)
+    document.addEventListener('mousemove', enableHover, true)
+
+    enableHover()
+}
+watchForHover()
 
 
-// if((!cellElements[35].classList.contains(player1) && 
-//         !cellElements[35].classList.contains(player2)) ||
-//             //cell 35
-//         (!cellElements[36].classList.contains(player1) && 
-//         !cellElements[36].classList.contains(player2)) ||
-//             //cell 36 or
-//         (!cellElements[37].classList.contains(player1) && 
-//         !cellElements[37].classList.contains(player2)) ||
-//             //cell 37 or
-//         (!cellElements[38].classList.contains(player1) && 
-//         !cellElements[38].classList.contains(player2)) ||
-//             //cell 38 or
-//         (!cellElements[39].classList.contains(player1) && 
-//         !cellElements[39].classList.contains(player2)) ||
-//             //cell 39 or
-//         (!cellElements[40].classList.contains(player1) && 
-//         !cellElements[40].classList.contains(player2)) ||
-//             //cell 40 or
-//         (!cellElements[41].classList.contains(player1) && 
-//         !cellElements[41].classList.contains(player2))){
-//             //cell 41 are empty
-            
-    
-//         }
+//const insertDogFace = document.querySelector('emoji').innerHTML = String.fromCodePoint(0x1F436)
+//const insertCatFace = document.querySelector('emoji').innerHTML = String.fromCodePoint(0x1F431)
+
+// if(currentPlayer === player1){
+//     insertCatFace
+// }else{
+//     insertDogFace
+// }

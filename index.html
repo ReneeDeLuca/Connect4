@@ -3,7 +3,7 @@
 	<head>
     	<meta charset="utf-8">
     	<meta name="description" content="Connect Four with a cute twist!">
-    	<meta name="keywords" content="one, two, three">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Cats vs Dogs Connect Four</title>
 
@@ -13,19 +13,27 @@
 	</head>
 	<body>
 		<header>
-			<h1>Connect Four - Cats vs Dogs </h1>
-			
-			<span class="rules">Four in a row wins!</span>
+			<h1>Connect Four</h1>
 		</header>
 		<main>
-
-			<section class="cats">
-				<span>Player 1 is Cats!</span>
-				<img class="playerImage" src="pexels-lucas-pezeta-2930204.jpg">
-				<span id= "catsGo" class ="catTurn"></span>
+			<section class="playerInfo">
+				<section class="cats" class="desktop">
+					<span>Player 1 is Cats!</span>
+					<img class="playerImage" src="pexels-lucas-pezeta-2930204.jpg">
+				</section>
+				<section class="middleText">
+					<h2>Cats vs Dogs </h2>
+					<span class="rules">Four in a row wins!</span>
+					<span id="catsGo" class="catTurn"></span>
+					<span id="dogsGo" class="dogTurn"></span>
+				</section>								
+				<section class="dogs">
+					<span>Player 2 is Dogs!</span>
+					<img class="playerImage" src="pexels-helena-lopes-4453074.jpg">
+				</section>
 			</section>
-
-			<section>
+			
+			<section class="gameBoardGrid">
 				<!--Connect 4 board is 6hx7w = 42 grid-->
 				<div id="board" class="gameBoard" >
 					<div id="0" class ="cell " data-cell>
@@ -170,13 +178,7 @@
 					<button id="showBoard">Show Board</button>
 				</div>
 			</section>
-			<section>
-				<section class="dogs">
-					<span>Player 2 is Dogs!</span>
-					<img class="playerImage" src="pexels-helena-lopes-4453074.jpg">
-					<span id= "dogsGo" class="dogTurn"></span>
-				</section>
-			</section>
+			
 		</main>
 
 		<script type="text/javascript" src="js/main.js"></script>

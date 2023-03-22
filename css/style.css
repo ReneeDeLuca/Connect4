@@ -3,219 +3,220 @@
 /* BASE STYLES
 /*******************************************/
 :root {
-     --cell-size: 85px;
-     --color-p1: #3c3cd0;
-     --color-p1-set: #000080;
-     --color-p2: #b73e3e;
-     --color-p2-set: #850101;
-     --color-draw: #500181;
-     --color-body: #babdc0;
-     --l: 10px;
+    --cell-size: 80px;
+    --color-p1: #3c3cd0;
+    --color-p1-set: #000080;
+    --color-p2: #b73e3e;
+    --color-p2-set: #850101;
+    --color-draw: #500181;
+    --color-body: #babdc0;
+    --l: 10px;
 }
-@media (hover: hover){
-    /* for Player1 (hover) */
-    #hashHover .gameBoard.Player1 .cell:not(.Player2):not(.Player1):hover {
-    background: radial-gradient(var(--color-p1) 60%, transparent 60%);
-    }
-    /* for Player2 (hover) */
-    #hasHover .gameBoard.Player2 .cell:not(.Player2):not(.Player1):hover {	
-    background: radial-gradient(var(--color-p2) 60%, transparent 60%);
-    } 
-}
-
 body {
-	margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--color-body);
-    
-}
-main{
-    display: flex;
-    flex-direction: row;
-    align-items: top;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: var(--color-body);
+   
 }
 header{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
- h1{
-     color: var(--color-draw);
-     font-size: 4rem;
-     margin-top: 1rem;
-     margin-bottom: 0;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
- 
- .rules{
-     color: var(--color-p1-set);
-     font-size: 1.5rem;
-     padding: 0;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color: var(--color-draw);
+    font-size: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+section.middleText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
 
- section.cats{
-    display: flex;
-    flex-direction: column;
-    color: var(--color-p1-set);
-    align-items: center;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 3rem;
-    padding-right: 2rem;
-    
- }
- section.dogs{
-    display: flex;
-    flex-direction: column;
-    color: var(--color-p2-set);
-    align-items: center;
-    font-size: 1.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 3rem;
-    padding-left: 2rem;
-    
- }
- .catTurn{
+}
+h2{
+    color: var(--color-draw);
+    font-size: 2rem;
+    margin-top: .5rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+.rules{
     color: var(--color-p1-set);
     font-size: 1.5rem;
-    font-weight: 900;
-    margin: 0;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: .5rem;
-    margin-bottom: 0;
- }
- .catTurn.nextTurn{
-    display:flex;
- }
- .dogTurn{
-    color: var(--color-p2-set);
-    font-size: 1.5rem;
-    font-weight: 900;
-    margin: 0;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: .5rem;
-    margin-bottom: 0;
- }
- .dogTurn.nextTurn{
-    display: flex;
- }
- img.playerImage {
-    max-width: 200px;
-    max-height: 200px;
-    padding-top: 2rem;
-    padding-right: 3rem;
-    padding-bottom: 2rem;
-    padding-left: 3rem;
- }
- footer {
+    padding-top: .5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--color-draw)
- }
-  
+    text-align: center;
+}
+main{
+   display: flex;
+   flex-direction: column;
+   align-items: top;
+}
+section.playerInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+section.cats{
+   display: flex;
+   flex-direction: column;
+   color: var(--color-p1-set);
+   align-items: center;
+   font-size: 1.5rem;
+   font-family: Arial, Helvetica, sans-serif;
+   padding-top: .5rem;
+   padding-right: .5rem;
+}
+section.dogs{
+   display: flex;
+   flex-direction: column;
+   color: var(--color-p2-set);
+   align-items: center;
+   font-size: 1.5rem;
+   font-family: Arial, Helvetica, sans-serif;
+   padding-top: .5rem;
+   padding-left: .5rem;
+}
+.catTurn{
+   color: var(--color-p1-set);
+   font-size: 1.5rem;
+   font-weight: 900;
+   margin: 0;
+   display: none;
+   flex-direction: column;
+   align-items: center;
+   padding: .5rem;
+   margin-bottom: 0;
+}
+.catTurn.nextTurn{
+   display:flex;
+}
+.dogTurn{
+   color: var(--color-p2-set);
+   font-size: 1.5rem;
+   font-weight: 900;
+   margin: 0;
+   display: none;
+   flex-direction: column;
+   align-items: center;
+   padding: .5rem;
+   margin-bottom: 0;
+}
+.dogTurn.nextTurn{
+   display: flex;
+}
+img.playerImage {
+   max-width: 100px;
+   max-height: 100px;
+   padding: 1rem;
+}
+footer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family: Arial, Helvetica, sans-serif;
+   color: var(--color-draw)
+}
+ 
 /*create a grid of 7 columns and 6 rows */
 .gameBoard {
-     display: grid;
-     justify-content: center;
-     align-content: center;
-     justify-items: center;
-     align-items: center;
-     grid-template-columns: repeat(7, auto);
-     margin: 2rem;
- }
- .cell {
-	width: var(--cell-size);
-	height: var(--cell-size);
-	border: 1px solid #000080;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(7, auto);
+    margin: 1rem;
 }
- .cell:nth-child(1), .cell:nth-child(8), .cell:nth-child(15),.cell:nth-child(22),.cell:nth-child(29),.cell:nth-child(36) {
-     border-left: #000080 2px solid;
- }
- 
- .cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3), .cell:nth-child(4), .cell:nth-child(5), .cell:nth-child(6), .cell:nth-child(7) {
-     border-top: #000080 2px solid;
- }
- .cell:nth-child(7), .cell:nth-child(14), .cell:nth-child(21),.cell:nth-child(28),.cell:nth-child(35),.cell:nth-child(42) {
-     border-right: #000080 2px solid;
- }
- .cell:nth-child(36), .cell:nth-child(37), .cell:nth-child(38),.cell:nth-child(39),.cell:nth-child(40),.cell:nth-child(41), .cell:nth-child(42) {
-     border-bottom: #000080 2px solid;
- }
- /* hide bottom row */
+.cell {
+   width: var(--cell-size);
+   height: var(--cell-size);
+   border: 1px solid #000080;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   cursor: pointer;
+}
+.cell:nth-child(1), .cell:nth-child(8), .cell:nth-child(15),.cell:nth-child(22),.cell:nth-child(29),.cell:nth-child(36) {
+    border-left: #000080 2px solid;
+}
+
+.cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3), .cell:nth-child(4), .cell:nth-child(5), .cell:nth-child(6), .cell:nth-child(7) {
+    border-top: #000080 2px solid;
+}
+.cell:nth-child(7), .cell:nth-child(14), .cell:nth-child(21),.cell:nth-child(28),.cell:nth-child(35),.cell:nth-child(42) {
+    border-right: #000080 2px solid;
+}
+.cell:nth-child(36), .cell:nth-child(37), .cell:nth-child(38),.cell:nth-child(39),.cell:nth-child(40),.cell:nth-child(41), .cell:nth-child(42) {
+    border-bottom: #000080 2px solid;
+}
+/* hide bottom row */
 .cell.hidden{
-    border: 1px solid var(--color-body)
+   border: 1px solid var(--color-body)
 }
 /* remove hover effect if cell is already filled */
 .cell.Player1, .cell.Player2, .cell.hidden {
-    cursor: not-allowed;
+   cursor: not-allowed;
 }
 
 /* for Player1 (set) */
 .cell:not(.Player2).Player1 {
-    background-image: url(../pexels-lucas-pezeta-2930204.jpg);
-    background-size: 85px;
+   background-image: url(../pexels-lucas-pezeta-2930204.jpg);
+   background-size: 80px;
 }
 
 /* for Player2 (set) */
 .cell:not(.Player1).Player2 {
 background-image: url(../pexels-helena-lopes-4453074.jpg);
-background-size: 85px;
+background-size: 80px;
 }
 .gameEndMessage {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    color: var(--color-body);
-    font-size: 5rem;
-    font-family: 'Courier New', Courier, monospace;
-    flex-direction: column;
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   justify-content: center;
+   align-items: center;
+   color: var(--color-body);
+   font-size: 5rem;
+   font-family: 'Courier New', Courier, monospace;
+   flex-direction: column;
 }
 .gameEndMessage.draw{
-    background-color: var(--color-draw);;
+   background-color: var(--color-draw);;
 }
 .gameEndMessage.dogs-win{
-    background-color: var(--color-p2-set);;
+   background-color: var(--color-p2-set);;
 }
 .gameEndMessage.cats-win{
-    background-color: var(--color-p1-set);;
+   background-color: var(--color-p1-set);;
 }
 .restartButton button {
-    border-radius: 10px;
-    font-size: 3rem;
-    background-color: var(--color-body);
-    border: 1px solid var(--color-set);
-    padding: .25em .5em;
-    cursor: pointer;
+   border-radius: 10px;
+   font-size: 3rem;
+   background-color: var(--color-body);
+   border: 1px solid var(--color-set);
+   padding: .25em .5em;
+   cursor: pointer;
 }
 
 .restartButton button:hover {
-    background-color: var(--color-set);
-    color:var(--color-body);
-    border-color:var(--color-body);
+   background-color: var(--color-set);
+   color:var(--color-body);
+   border-color:var(--color-body);
 }
 .showBoard button {
 border-radius: 10px;
@@ -232,5 +233,18 @@ color:var(--color-body);
 border-color:var(--color-body);
 }
 .gameEndMessage.show {
-    display: flex;
+   display: flex;
 }
+
+
+ /* @media (hover: hover){
+    /* for Player1 (hover) */
+ /*   #hashHover .gameBoard.Player1 .cell:not(.Player2):not(.Player1):hover {
+    background: radial-gradient(var(--color-p1) 60%, transparent 60%);
+    }
+    /* for Player2 (hover) */
+/*    #hasHover .gameBoard.Player2 .cell:not(.Player2):not(.Player1):hover {	
+    background: radial-gradient(var(--color-p2) 60%, transparent 60%);
+    } 
+ } 
+  

@@ -25,6 +25,10 @@ Taking lessons learned from Tic Tac Toe tutorial and applying them to Connect4. 
     - change game end message to match theme
       - pull API info to insert a random cat or dog photo (need third animal for draw), depending on which player wins
 
+  ### Elasticity 
+    - not viewable on mobile, looks terrible. COMPLETE
+    - rework layout - COMPLETE
+
 ## Bugs
   ### Hover
     - having an issue on multi input device (touchscreen laptop) where hover is sticky when using touch 

@@ -4,7 +4,7 @@ Get four in a row to win! Classic Connect 4 with a cute theme of Cats vs Dogs.
 
 **Link to project:** https://rdelucaconnect4.netlify.app/
 
-![Screenshot of Cats Vs Dogs Connect 4](https://github.com/ReneeDeLuca/Connect4/RDConnect4.png)
+![Screenshot of Cats Vs Dogs Connect 4](https://github.com/ReneeDeLuca/Connect4/blob/main/RDConnect4.png)
 
 ## How It's Made:
 

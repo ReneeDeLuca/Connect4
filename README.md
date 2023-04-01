@@ -10,7 +10,7 @@ Get four in a row to win! Classic Connect 4 with a cute theme of Cats vs Dogs.
 
 **Tech used:** HTML, CSS, JavaScript
 
-Taking lessons learned from Tic Tac Toe tutorial and applying them to Connect4. 
+Taking lessons learned from Tic Tac Toe tutorial and applying them to Connect 4. 
 
 - [tutorial used](https://www.codebrainer.com/blog/tic-tac-toe-javascript-game)
 
@@ -35,18 +35,18 @@ Taking lessons learned from Tic Tac Toe tutorial and applying them to Connect4.
 
 ## Optimizations
 
-### Elasticity 
+  ### Elasticity 
     - original layout not viewable on mobile, media query not working with game board size 
     - reworked layout for a better feel in a vertical format (ie portrait view on a phone screen)
 
 ## Lessons Learned:
 
-Flex grid - layout
-Hover  
+  - Flex grid - layout
+  - Hover
     - having an issue on multi input device (touchscreen laptop) where hover is sticky when using touch 
     - known issue with multi input devices 
-      - there is currently no solution 
-        - see https://drafts.csswg.org/mediaqueries/#hover > 7.3 example 47
+    - there is currently no solution 
+    - see https://drafts.csswg.org/mediaqueries/#hover > 7.3 example 47
 
 
 

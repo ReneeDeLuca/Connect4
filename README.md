@@ -26,18 +26,16 @@ Taking lessons learned from Tic Tac Toe tutorial and applying them to Connect 4.
 
   ### Theme - Cats vs Dogs
     - change player 'chips' from basic circles to cats and dogs 
-      - ~~lesson needed - how to use emojis in HTML/CSS/JS~~ decided to go with background images 
-      - ~~ [article found](https://dev.to/beumsk/how-to-add-emoji-s-in-your-website-using-html-css-or-javascript-4g6g) ~~
+      - background images for cat and dog theme, will change to API or array in the future to randomize pictures on click
       - ~~hover and~~ set behaviors should show based on which player turn it is - see section below 
-      - considering a future change to pull API random photo for each cell chosen. 
     - need to change game end message to match theme
       - API info for a random cat or dog photo (need third animal for draw), depending on which player wins
 
 ## Optimizations
-
+  
   ### Elasticity 
-    - original layout not viewable on mobile, media query not working with game board size 
-    - reworked layout for a better feel in a vertical format (ie portrait view on a phone screen)
+   - original layout not viewable on mobile, media query not working with game board size
+   - reworked layout for a better feel in a vertical format (ie portrait view on a phone screen)
 
 ## Lessons Learned:
 
